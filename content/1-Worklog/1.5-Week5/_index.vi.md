@@ -1,59 +1,48 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
+date: 2026-05-15
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 5:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu các thành phần chính của EC2 và cách vận hành compute trong AWS.
+* Nắm cơ chế Auto Scaling, EBS, Instance Store, User Data, Metadata.
+* Thực hành backup, Storage Gateway và triển khai EC2 phục vụ cho lưu trữ.
+* Thực hành triển khai static website bằng S3 và CloudFront.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu về EC2, các loại instance, AMI, key pair <br> - Biết được EBS, Instance Store, User Data, Metadata <br> - Ôn lại các thành phần quan trọng khi vận hành compute trên AWS | 15/05/2026 | 15/05/2026 | <https://youtu.be/-t5h4N6vfBs?si=GeVdhO9IEDjzzS_D> <br><https://youtu.be/e7XeKdOVq40?si=T3I4pgPoEfVytcU3> <br><https://youtu.be/yAR6QRT3N1k?si=GQghyBwLCpijrDON> <br><https://youtu.be/hKr_TfGP7NY?si=gR2MqaLAFrqL-KBo> <br><https://youtu.be/6IHNDJ85aoQ?si=M0puk6DJpliO7ahf> <br><https://youtu.be/_v_43Wi7zjo?si=qNDVWzKcQFNO2mGh> <br><https://youtu.be/Ew3QRaKJQSA?si=xNvXvD8yFhnSMJby> |
+| 2 | - Nắm bắt được EC2 Auto Scaling và cách scale VM <br> - Tìm hiểu về các dịch vụ lưu trữ và compute như EFS, FSx, Lightsail, MGN ở mức tổng quan <br> - Ghi chú trường hợp sử dụng của từng dịch vụ | 18/05/2026 | 18/05/2026 | <https://youtu.be/bbLcPitXJSY?si=eyVnxvL9ho0LpUYy> <br><https://youtu.be/hFVYG8WqfU0?si=9Px4wmR4IRZxk15n> |
+| 3 | - Thực hành: <br>     + Deploy AWS Backup <br>     + Create backup plan <br>     + Test restore & cleanup <br>     + Dọn dẹp backup | 19/05/2026 | 19/05/2026 | <https://000013.awsstudygroup.com/> |
+| 4 | - Thực hành: <br>     + Create S3 bucket để làm Storage Gateway <br>     + Create EC2 cho Storage Gateway <br>     + Create Storage Gateway + File Share <br>     + Dọn dẹp Storage Gateway | 20/05/2026 | 20/05/2026 | <https://000024.awsstudygroup.com/> |
+| 5 | - Thực hành: <br>     + Create bucket, upload dữ liệu <br>     + Enable static website hosting <br>     + Cấu hình public access block <br>     + Cấu hình CloudFront và test website <br>     + Dọn dẹp website, CloudFront và bucket | 21/05/2026 | 21/05/2026 | <https://000057.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 5:
+**Tổng quát:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần này tôi đã hiểu cơ chế vận hành EC2, các loại storage của instance, Auto Scaling và backup. Đồng thời tôi cũng làm quen với Storage Gateway và triển khai static website bằng S3 kết hợp CloudFront.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Lý thuyết đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Khái niệm về kiến trúc EC2, AMI, key pair.
+* EBS và Instance Store.
+* User Data và Metadata.
+* EC2 Auto Scaling.
+* Tổng quan về EFS, FSx, Lightsail và MGN.
+* Storage Gateway và nền tảng về Backup.
+* S3 static website hosting và CloudFront.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Thực hành với bài lab:**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo backup plan và test restore.
+* Tạo Storage Gateway và file share.
+* Tạo S3 bucket, upload dữ liệu và bật static website hosting.
+* Cấu hình CloudFront để phân phối nội dung website.
+* Dọn dẹp tài nguyên backup, Storage Gateway, CloudFront và S3 sau khi hoàn thành lab.

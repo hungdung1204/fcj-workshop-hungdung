@@ -1,59 +1,48 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+date: 2026-06-26
+weight: 1
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 11:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu AWS Budgets và Cost Management.
+* Nắm cách kiểm tra chi phí trong AWS Billing.
+* Tạo cost budget để cảnh báo khi chi phí vượt ngưỡng.
+* Rà soát các tài nguyên dễ phát sinh chi phí như EC2, RDS, NAT Gateway, Load Balancer, CloudWatch Logs và Elastic IP.
+* Tìm hiểu cách tối ưu chi phí trong quá trình học và thực hành AWS.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu tổng quan AWS Budgets <br> - Nắm vai trò của Cost Budget trong việc kiểm soát chi phí <br> - Ghi chú vì sao cần tạo budget khi thực hành AWS | 26/06/2026 | 26/06/2026 | <https://000007.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Tạo hoặc kiểm tra Cost Budget <br> - Cấu hình ngưỡng cảnh báo chi phí <br> - Thiết lập email nhận cảnh báo <br> - Kiểm tra trạng thái budget sau khi tạo | 29/06/2026 | 29/06/2026 | <https://000007.awsstudygroup.com/> |
+| 3 | - Tìm hiểu Usage Budget, RI Budget và Savings Plans Budget ở mức tổng quan <br> - Ghi chú trường hợp sử dụng của từng loại budget <br> - So sánh budget theo chi phí và budget theo mức sử dụng | 30/06/2026 | 30/06/2026 | <https://000007.awsstudygroup.com/> |
+| 4 | - Rà soát các tài nguyên dễ phát sinh chi phí <br> - Kiểm tra EC2, RDS, NAT Gateway, Load Balancer, CloudWatch Logs, Elastic IP và Snapshot <br> - Ghi chú cách nhận diện tài nguyên còn đang chạy | 01/07/2026 | 01/07/2026 | <https://000007.awsstudygroup.com/> |
+| 5 | - Tổng hợp checklist tối ưu chi phí khi học AWS <br> - Kiểm tra Billing Dashboard <br> - Ghi chú các bước cần làm sau mỗi bài lab để tránh phát sinh chi phí <br> - Chuẩn bị nội dung tổng kết cuối chương trình | 02/07/2026 | 02/07/2026 | <https://000007.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 11:
+**Tổng quát:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần này tôi đã hiểu cách theo dõi và kiểm soát chi phí trên AWS. Tôi biết cách tạo budget, thiết lập cảnh báo chi phí và rà soát các tài nguyên có thể phát sinh phí sau khi thực hành lab.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Lý thuyết đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* AWS Billing.
+* AWS Budgets.
+* Cost Budget, Usage Budget, RI Budget và Savings Plans Budget.
+* Các tài nguyên dễ phát sinh chi phí.
+* Nguyên tắc tối ưu chi phí khi thực hành AWS.
+* Tầm quan trọng của việc dọn dẹp tài nguyên sau lab.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Thực hành với bài lab:**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo hoặc kiểm tra Cost Budget.
+* Cấu hình cảnh báo chi phí qua email.
+* Kiểm tra Billing Dashboard.
+* Rà soát tài nguyên còn đang chạy.
+* Lập checklist dọn dẹp tài nguyên sau mỗi bài lab.

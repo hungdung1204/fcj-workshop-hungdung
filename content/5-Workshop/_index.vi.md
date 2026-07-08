@@ -1,33 +1,33 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-04
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Chương này trình bày workshop triển khai nền tảng thương mại điện tử HaShop trên AWS. Nội dung được sắp xếp theo luồng: tổng quan dự án, mô tả kiến trúc, điều kiện chuẩn bị, triển khai, kiểm thử và dọn dẹp tài nguyên.
 
+**5.1:** [Tổng quan](5.1-Overview/)
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+Giới thiệu bối cảnh dự án, bài toán cần giải quyết, người dùng mục tiêu, kết quả mong muốn và tiêu chí đánh giá thành công.
 
-#### Tổng quan
+**5.2:** [Mô tả kiến trúc](5.2-Architecture/)
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trình bày sơ đồ kiến trúc, các lớp hệ thống, luồng request chính, dịch vụ AWS sử dụng, lý do lựa chọn dịch vụ, bảo mật/IAM, logging/monitoring, alert, tối ưu chi phí và clean-up.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+**5.3:** [Điều kiện chuẩn bị](5.3-Prerequisite/)
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Liệt kê quyền tài khoản AWS, region và công cụ cục bộ cần chuẩn bị trước khi triển khai.
 
-#### Nội dung
+**5.4:** [Hướng dẫn triển khai](5.4-Deployment-guide/)
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+Cung cấp các bước triển khai end-to-end cho Lambda artifact, container image, CloudFormation stack và bản phát hành frontend.
+
+**5.5:** [Kiểm thử và xác thực](5.5-Test-validation/)
+
+Kiểm tra frontend, đăng nhập, ECS service, quản lý sản phẩm, luồng đặt hàng, CloudWatch log và metric của WAF.
+
+**5.6:** [Dọn dẹp tài nguyên](5.6-Clean-up/)
+
+Xóa các tài nguyên lab theo đúng thứ tự để tránh phát sinh chi phí AWS không cần thiết.

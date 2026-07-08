@@ -1,59 +1,49 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
+date: 2026-06-05
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 8:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Elastic Load Balancing và Auto Scaling Group.
+* Nắm được cách triển khai ứng dụng có khả năng mở rộng.
+* Hiểu vai trò của Launch Template, Target Group và Health Check.
+* Thực hành triển khai ứng dụng với Auto Scaling Group.
+* Hiểu mô hình high availability trên nhiều Availability Zone.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu tổng quan Elastic Load Balancing <br> - Nắm vai trò của Application Load Balancer <br> - Ghi chú cách ALB phân phối request đến nhiều EC2 Instance <br> - Xác định vị trí ALB trong sơ đồ kiến trúc | 05/06/2026 | 05/06/2026 | <https://000006.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Tìm hiểu Target Group và Health Check <br> - Cấu hình hoặc mô phỏng Target Group cho EC2 <br> - Kiểm tra trạng thái healthy/unhealthy <br> - Ghi chú cách health check giúp phát hiện instance lỗi | 08/06/2026 | 08/06/2026 | <https://000006.awsstudygroup.com/> |
+| 3 | - Tìm hiểu Launch Template <br> - Nắm thông tin AMI, instance type, key pair, security group trong launch template <br> - Ghi chú vai trò của launch template khi tạo Auto Scaling Group | 09/06/2026 | 09/06/2026 | <https://000006.awsstudygroup.com/> |
+| 4 | - Tìm hiểu Auto Scaling Group <br> - Nắm desired capacity, minimum capacity và maximum capacity <br> - Ghi chú cách ASG tự động thêm hoặc giảm EC2 Instance <br> - Thực hành hoặc mô phỏng cấu hình Auto Scaling | 10/06/2026 | 10/06/2026 | <https://000006.awsstudygroup.com/> |
+| 5 | - Hoàn thiện sơ đồ kiến trúc có ALB và Auto Scaling Group <br> - Thể hiện luồng User → ALB → Target Group → EC2 Auto Scaling Group <br> - Ghi chú lợi ích và chi phí khi triển khai Multi-AZ <br> - Dọn dẹp tài nguyên sau khi hoàn thành lab | 11/06/2026 | 11/06/2026 | <https://000006.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 8:
+**Tổng quát:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần này tôi đã hiểu cách triển khai hệ thống có khả năng mở rộng và tính sẵn sàng cao bằng Application Load Balancer và Auto Scaling Group. Tôi biết cách mô tả luồng request từ người dùng đến nhiều EC2 Instance thông qua ALB.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Lý thuyết đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Elastic Load Balancing.
+* Application Load Balancer.
+* Target Group và Health Check.
+* Launch Template.
+* Auto Scaling Group.
+* Multi-AZ và high availability.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Thực hành với bài lab:**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo hoặc mô phỏng Target Group.
+* Cấu hình Health Check.
+* Tìm hiểu Launch Template.
+* Cấu hình Auto Scaling Group.
+* Vẽ sơ đồ User → ALB → Target Group → EC2 Auto Scaling Group.
+* Dọn dẹp tài nguyên sau khi hoàn thành lab.

@@ -1,57 +1,47 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-17
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 1 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn an overview of AWS, Cloud Computing, and the First Cloud Journey program.
+* Get familiar with AWS Free Tier, AWS Management Console, and basic account operations.
+* Learn about AWS CLI and how to use the command line to interact with AWS resources.
+* Understand the basic components commonly found in AWS architecture diagrams.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - Get familiar with the First Cloud Journey program <br> - Learn about the learning roadmap and how to track progress <br> - Learn about AWS and Cloud Computing overview <br> - Note the role of cloud computing in deploying, operating, and scaling systems | 17/04/2026 | 17/04/2026 | <https://000001.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Learn about AWS Free Tier <br> - Differentiate between Free Account Plan and Paid Account Plan <br> - Learn about credits in AWS Free Tier <br> - Note services that can easily incur costs during practice | 20/04/2026 | 20/04/2026 | <https://000001.awsstudygroup.com/> |
+| 3 | - Get familiar with AWS Management Console <br> - Learn how to search and access AWS services <br> - Observe account information, regions, and resources <br> - Note basic operations on the AWS Console interface | 21/04/2026 | 21/04/2026 | <https://000001.awsstudygroup.com/> |
+| 4 | - Learn about AWS CLI <br> - Install AWS CLI on your computer <br> - Configure default region and output format <br> - Practice checking configuration information with CLI commands | 22/04/2026 | 22/04/2026 | <https://000011.awsstudygroup.com/> |
+| 5 | - Learn about overall AWS architecture diagrams <br> - Identify basic components such as User, Region, Availability Zone, VPC, Subnet, EC2, S3, RDS, IAM, and CloudWatch <br> - Practice drafting an overall AWS architecture diagram <br> - Summarize AWS onboarding content from the first week | 23/04/2026 | 23/04/2026 | <https://000001.awsstudygroup.com/> <br><https://000011.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
 
 
 ### Week 1 Achievements:
+**Overview:**
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week I understood an overview of AWS, the role of Cloud Computing, and how to use an AWS account for learning and practice. I also got familiar with the AWS Management Console, AWS CLI, and how to describe basic AWS architecture.
 
-* Successfully created and configured an AWS Free Tier account.
+**Learned theory:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* AWS and Cloud Computing concepts.
+* The role of cloud computing in system deployment.
+* AWS Free Tier and considerations when using a practice account.
+* AWS Management Console, regions, and AWS resources.
+* AWS CLI and basic command line configuration.
+* Basic components in AWS architecture diagrams.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Hands-on labs:**
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Getting familiar with an AWS account.
+* Observing the AWS Management Console interface.
+* Installing and configuring AWS CLI.
+* Checking CLI configuration with basic commands.
+* Drafting an overall AWS architecture diagram.

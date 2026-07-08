@@ -1,59 +1,49 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
+date: 2026-05-08
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 4:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Amazon EC2 và vai trò của EC2 trong nhóm dịch vụ Compute.
+* Nắm được AMI, Instance Type, Key Pair, Security Group và EBS Volume.
+* Thực hành tạo Linux Instance và Windows Instance.
+* Kết nối EC2 bằng SSH, EC2 Instance Connect hoặc Remote Desktop.
+* Triển khai web server cơ bản trên EC2.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu tổng quan Amazon EC2 <br> - Nắm khái niệm AMI, Instance Type, Key Pair, Security Group và EBS Volume <br> - Phân biệt Linux Instance và Windows Instance | 08/05/2026 | 08/05/2026 | <https://000004.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Chuẩn bị môi trường cho EC2 <br> - Tạo VPC cho Linux Instance hoặc Windows Instance <br> - Tạo Security Group phù hợp <br> - Kiểm tra các rule truy cập cần thiết | 11/05/2026 | 11/05/2026 | <https://000004.awsstudygroup.com/> |
+| 3 | - Launch Microsoft Windows Server Instance <br> - Kết nối Windows Instance bằng Remote Desktop <br> - Kiểm tra thông tin máy chủ sau khi kết nối <br> - Ghi chú lỗi thường gặp khi kết nối RDP | 12/05/2026 | 12/05/2026 | <https://000004.awsstudygroup.com/> |
+| 4 | - Launch Amazon Linux Instance <br> - Kết nối Linux Instance bằng SSH hoặc EC2 Instance Connect <br> - Kiểm tra package và cấu hình cơ bản <br> - Ghi chú lỗi thường gặp khi kết nối SSH | 13/05/2026 | 13/05/2026 | <https://000004.awsstudygroup.com/> |
+| 5 | - Cài đặt web server cơ bản trên EC2 <br> - Kiểm tra truy cập ứng dụng qua public IP <br> - Cập nhật sơ đồ kiến trúc có EC2, Security Group và Internet Gateway <br> - Ghi chú các bước dọn dẹp tài nguyên EC2 | 14/05/2026 | 14/05/2026 | <https://000004.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 4:
+**Tổng quát:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần này tôi đã hiểu cách Amazon EC2 vận hành như một máy chủ ảo trên AWS. Tôi đã làm quen với việc tạo instance, cấu hình Security Group, kết nối máy chủ và triển khai ứng dụng web cơ bản.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Lý thuyết đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Amazon EC2.
+* AMI, Instance Type và Key Pair.
+* Security Group cho EC2.
+* Linux Instance và Windows Instance.
+* EBS Volume.
+* Cách kết nối SSH, EC2 Instance Connect và RDP.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Thực hành với bài lab:**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo EC2 Instance.
+* Kết nối Windows Instance bằng RDP.
+* Kết nối Linux Instance bằng SSH hoặc EC2 Instance Connect.
+* Cài đặt web server cơ bản.
+* Kiểm tra truy cập ứng dụng qua public IP.
+* Dọn dẹp tài nguyên EC2 sau khi hoàn thành lab.

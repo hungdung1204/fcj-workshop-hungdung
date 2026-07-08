@@ -1,57 +1,49 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
+date: 2026-06-05
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 8 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about Elastic Load Balancing and Auto Scaling Group.
+* Understand how to deploy a scalable application.
+* Understand the roles of Launch Template, Target Group, and Health Check.
+* Practice deploying an application with Auto Scaling Group.
+* Understand high availability model across multiple Availability Zones.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - Learn about Elastic Load Balancing overview <br> - Understand the role of Application Load Balancer <br> - Note how ALB distributes requests to multiple EC2 Instances <br> - Identify ALB's position in the architecture diagram | 05/06/2026 | 05/06/2026 | <https://000006.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Learn about Target Group and Health Check <br> - Configure or simulate a Target Group for EC2 <br> - Check healthy/unhealthy status <br> - Note how health checks help detect faulty instances | 08/06/2026 | 08/06/2026 | <https://000006.awsstudygroup.com/> |
+| 3 | - Learn about Launch Template <br> - Understand AMI, instance type, key pair, and security group in a launch template <br> - Note the launch template's role when creating an Auto Scaling Group | 09/06/2026 | 09/06/2026 | <https://000006.awsstudygroup.com/> |
+| 4 | - Learn about Auto Scaling Group <br> - Understand desired capacity, minimum capacity, and maximum capacity <br> - Note how ASG automatically adds or removes EC2 Instances <br> - Practice or simulate Auto Scaling configuration | 10/06/2026 | 10/06/2026 | <https://000006.awsstudygroup.com/> |
+| 5 | - Complete architecture diagram with ALB and Auto Scaling Group <br> - Show the flow User → ALB → Target Group → EC2 Auto Scaling Group <br> - Note benefits and costs when deploying Multi-AZ <br> - Clean up resources after completing the lab | 11/06/2026 | 11/06/2026 | <https://000006.awsstudygroup.com/> |
 
 
 ### Week 8 Achievements:
+**Overview:**
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week I understood how to deploy a scalable and highly available system using Application Load Balancer and Auto Scaling Group. I know how to describe the request flow from users to multiple EC2 Instances through ALB.
 
-* Successfully created and configured an AWS Free Tier account.
+**Learned theory:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Elastic Load Balancing.
+* Application Load Balancer.
+* Target Group and Health Check.
+* Launch Template.
+* Auto Scaling Group.
+* Multi-AZ and high availability.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Hands-on labs:**
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Create or simulate a Target Group.
+* Configure Health Check.
+* Learn about Launch Template.
+* Configure Auto Scaling Group.
+* Draw the User → ALB → Target Group → EC2 Auto Scaling Group diagram.
+* Clean up resources after completing the lab.

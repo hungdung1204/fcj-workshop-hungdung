@@ -1,58 +1,48 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
+date: 2026-05-22
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 6:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Amazon RDS và các khái niệm database trên AWS.
+* Phân biệt database tự quản lý trên EC2 và managed database bằng RDS.
+* Tạo RDS Database Instance, cấu hình DB Subnet Group và Security Group.
+* Kết nối EC2 với RDS và kiểm tra hoạt động của database.
+* Tìm hiểu backup, restore và Multi-AZ ở mức cơ bản.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu tổng quan Amazon RDS <br> - Phân biệt relational database và non-relational database <br> - Ghi chú lợi ích của managed database trên AWS <br> - Tìm hiểu các database engine phổ biến trong RDS | 22/05/2026 | 22/05/2026 | <https://000005.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Tìm hiểu DB Instance, DB Subnet Group và Security Group cho RDS <br> - Thiết kế database đặt trong private subnet <br> - Xác định cách EC2 trong public/private subnet kết nối đến RDS | 25/05/2026 | 25/05/2026 | <https://000005.awsstudygroup.com/> |
+| 3 | - Thực hành tạo RDS Database Instance <br> - Cấu hình engine, storage, username, password và networking <br> - Kiểm tra database endpoint sau khi tạo <br> - Ghi chú thời gian khởi tạo RDS | 26/05/2026 | 26/05/2026 | <https://000005.awsstudygroup.com/> |
+| 4 | - Kết nối EC2 với RDS <br> - Cấu hình Security Group để EC2 truy cập database <br> - Kiểm tra kết nối bằng command line hoặc database client <br> - Ghi chú lỗi thường gặp khi kết nối thất bại | 27/05/2026 | 27/05/2026 | <https://000005.awsstudygroup.com/> |
+| 5 | - Tìm hiểu backup và restore trong RDS <br> - Tìm hiểu Multi-AZ ở mức tổng quan <br> - Cập nhật sơ đồ kiến trúc có EC2, RDS, private subnet và Security Group <br> - Dọn dẹp tài nguyên sau khi hoàn thành lab | 28/05/2026 | 28/05/2026 | <https://000005.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+**Tổng quát:**
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+Trong tuần này tôi đã hiểu vai trò của Amazon RDS trong việc triển khai database có quản lý trên AWS. Tôi biết cách tạo RDS Database Instance, cấu hình kết nối và mô tả kiến trúc ứng dụng có EC2 kết nối đến RDS.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+**Lý thuyết đã học:**
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Relational database và non-relational database.
+* Amazon RDS và managed database.
+* DB Instance, DB Engine, DB Subnet Group.
+* RDS endpoint và Security Group.
+* Backup, restore và Multi-AZ trong RDS.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+**Thực hành với bài lab:**
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo RDS Database Instance.
+* Cấu hình database trong private subnet.
+* Cấu hình Security Group cho phép EC2 truy cập database.
+* Kết nối EC2 với RDS.
+* Kiểm tra database endpoint.
+* Dọn dẹp tài nguyên sau khi hoàn thành lab.

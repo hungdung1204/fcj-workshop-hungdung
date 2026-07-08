@@ -1,57 +1,46 @@
 ---
 title: "Week 3 Worklog"
-date: 2024-01-01
+date: 2026-05-01
 weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 3 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about Amazon VPC and basic networking components on AWS.
+* Understand VPC, Subnet, Route Table, Internet Gateway, NAT Gateway, Security Group, and Network ACL.
+* Practice designing a network model with public subnet and private subnet.
+* Get familiar with VPC Flow Logs, Reachability Analyzer, and Site-to-Site VPN at a high level.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - Learn about Amazon VPC <br> - Understand CIDR block concept <br> - Differentiate between Default VPC and Custom VPC <br> - Note the role of VPC in AWS architecture | 01/05/2026 | 01/05/2026 | <https://000003.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Learn about Subnet <br> - Differentiate between Public Subnet and Private Subnet <br> - Learn about Route Table <br> - Draft a VPC model with public/private subnets | 04/05/2026 | 04/05/2026 | <https://000003.awsstudygroup.com/> |
+| 3 | - Learn about Internet Gateway and NAT Gateway <br> - Note how resources in public subnet access the Internet <br> - Note how resources in private subnet access the Internet through NAT Gateway <br> - Note costs when using NAT Gateway | 05/05/2026 | 05/05/2026 | <https://000003.awsstudygroup.com/> |
+| 4 | - Learn about Security Group and Network ACL <br> - Differentiate between stateful and stateless <br> - Practice designing basic inbound/outbound rules <br> - Note the principle of only opening necessary ports | 06/05/2026 | 06/05/2026 | <https://000003.awsstudygroup.com/> |
+| 5 | - Learn about VPC Flow Logs, Reachability Analyzer, and Session Manager at a high level <br> - Get familiar with Site-to-Site VPN model <br> - Complete network layer diagram including VPC, Subnet, Route Table, Internet Gateway, NAT Gateway, Security Group, and NACL | 07/05/2026 | 07/05/2026 | <https://000003.awsstudygroup.com/> |
 
 
 ### Week 3 Achievements:
+**Overview:**
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week I understood how AWS builds the network layer through Amazon VPC. I know how to differentiate between public subnet and private subnet, and how to control network access with Security Group and Network ACL.
 
-* Successfully created and configured an AWS Free Tier account.
+**Learned theory:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Amazon VPC and CIDR block.
+* Public Subnet and Private Subnet.
+* Route Table, Internet Gateway, and NAT Gateway.
+* Security Group and Network ACL.
+* VPC Flow Logs, Reachability Analyzer, and Site-to-Site VPN.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Hands-on labs:**
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Draft a VPC model.
+* Design public subnet and private subnet.
+* Configure basic route table.
+* Determine Internet access flow through Internet Gateway and NAT Gateway.
+* Complete network layer diagram on AWS.

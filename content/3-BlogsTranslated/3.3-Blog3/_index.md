@@ -1,126 +1,83 @@
----
+﻿---
 title: "Blog 3"
-date: 2024-01-01
-weight: 1
+date: 2026-07-01
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Reducing EC2 Waste with Automated Right-Sizing Using Compute Optimizer, CloudWatch, and Automation
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+## 1. EC2 cost is a common concern
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+When operating AWS infrastructure, EC2 cost is often one of the easiest areas to overspend. Teams may choose instance sizes that are larger than necessary, reuse old configurations, or forget to review capacity after workload changes. As a result, many instances run with more resources than they need.
 
----
+![EC2 Right-Sizing Automation](/images/3-BlogsTranslated/blog3/image1.png)
 
-## Architecture Guidance
+## 2. Why waste happens
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+Common causes include:
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+* Overprovisioning to be safe.
+* Lack of regular review.
+* Manual processes where engineers must inspect metrics and decide changes one by one.
 
-**The solution architecture is now as follows:**
+The result is unnecessary cost, inefficient resource usage, and wasted engineering time.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+## 3. Automated right-sizing
 
----
+The goal of automated right-sizing is to detect overprovisioned or underutilized instances and recommend or apply safe changes.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+The proposed solution combines:
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+* **AWS Compute Optimizer:** analyzes CPU, memory, network, and disk I/O to recommend instance changes.
+* **CloudWatch:** collects metrics, creates dashboards, and raises alarms.
+* **Automation:** uses Lambda, SSM Automation, Systems Manager Run Command, or Step Functions to apply changes.
+* **Governance:** requires approval before production changes and uses tagging plus audit trails.
 
----
+## 4. Proposed workflow
 
-## Technology Choices and Communication Scope
+1. Compute Optimizer collects 14-30 days of data and returns recommendations per instance.
+2. A filter keeps high-confidence recommendations and excludes stateful, database, or critical instances based on tags.
+3. The suggested instance type is tested in staging using AMIs or Launch Templates.
+4. Production changes are applied through rolling updates or a controlled stop/modify/start process during a maintenance window.
+5. CloudWatch monitors latency, error rate, CPU, and memory, then triggers rollback if thresholds are exceeded.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+## 5. Quick implementation guide
 
----
+* Enable Compute Optimizer for the account or organization.
+* Wait at least 14 days for reliable data.
+* Export recommendations to S3 or fetch them through API/SDK.
+* Build a Lambda function or script to filter recommendations daily.
+* Create an approval workflow through Slack or pull requests.
+* Apply approved changes through SSM Automation or rolling updates.
+* Configure CloudWatch dashboards and rollback alarms.
 
-## The Pub/Sub Hub
+## 6. Deployment checklist
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+* Enable Compute Optimizer.
+* Export recommendations automatically.
+* Tag instances that must not be changed with `do-not-rightsize`.
+* Filter recommendations by confidence, environment, and criticality.
+* Test changes in staging.
+* Store audit trails with CloudTrail and S3 logs.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+## 7. When to apply this approach
 
----
+This approach works well for stateless web servers, API servers, worker nodes, batch workers, Auto Scaling Group fleets, and workloads that can restart quickly.
 
-## Core Microservice
+It requires caution for production databases on EC2, workloads with local state, instances with hardware-bound licensing, and applications with strict boot or driver requirements.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+## 8. Key lessons
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Start with non-production workloads, standardize tagging and inventory, always prepare rollback, and combine automation with approval for important workloads. Right-sizing also works best when combined with Savings Plans and Reserved Instances for long-term cost optimization.
 
----
+## 9. Example filtering policy
 
-## Front Door Microservice
+Only consider recommendations when confidence is at least 70%, the instance is not tagged as `prod-db`, uptime is long enough, median CPU is below 30%, and median memory is below 40% over 14 days.
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+Non-production changes can be auto-approved, while production changes should create a pull request or Slack notification and wait for manual approval.
 
----
+## 10. Conclusion
 
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Automated right-sizing is an effective way to reduce EC2 cost without sacrificing stability. By combining Compute Optimizer, CloudWatch, and safe automation, organizations can reduce waste, maintain performance, and make optimization repeatable and auditable.

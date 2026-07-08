@@ -1,126 +1,122 @@
 ---
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-06-27
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# FCAJ Community Day - June 2026
+## Data Driven, AI Risen
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### Event Overview
 
-### Event Objectives
+FCAJ Community Day - June 2026 was a community technology event focused on the intersection of **AWS Cloud**, **Artificial Intelligence**, **DevOps**, **AI Agents**, and modern enterprise systems. Instead of presenting cloud computing as only infrastructure, the event showed how cloud platforms can become the foundation for intelligent systems that observe, analyze, automate, and support real operational decisions.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The event brought together several practical sharing sessions. Each topic connected technical concepts with real use cases, such as autonomous incident response, voice-based AI agents, DevOps automation, productivity planning, and secure private connections for AI agents. This made the event useful not only for understanding new technologies, but also for seeing how these technologies can be applied in real products and enterprise environments.
 
-### Speakers
+For participants, the event was also a chance to meet the FCAJ community, learn from experienced speakers, and gain more direction for future learning in AWS, backend development, DevOps, data, and AI.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+### General Information
 
-### Key Highlights
+- **Event name:** FCAJ Community Day - June 2026
+- **Theme:** Data Driven, AI Risen
+- **Time:** 09:00 - 12:00, June 27, 2026
+- **Location:** Bitexco Financial Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City
+- **Format:** Community event, technical sharing, demos, and networking
+- **Role:** Participant
+- **Main topics:** AWS Cloud, AI Agents, Voice Agents, DevOps Automation, Amazon Bedrock, Amazon Quick, MCP, and AI security
 
-#### Identifying the drawbacks of legacy application architecture
+### Main Sessions
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### Deep Response Engine: From Detection to Autonomous Resolution
 
-#### Transitioning to modern application architecture – Microservices
+**Speaker:** Nhat Tran
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+This session introduced a modern approach to system operations where AI can support incident response beyond simple monitoring and alerting. In traditional operations, systems usually detect problems and send alerts to engineers. However, with AI-assisted operations, a system can also summarize signals, analyze possible causes, and suggest response actions.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+The key idea was autonomous incident response. In cloud environments, engineers often need to inspect logs, metrics, traces, alerts, and service states from many places. AI can help reduce this manual investigation effort by combining operational data and highlighting what may require attention.
 
-#### Domain-Driven Design (DDD)
+The session helped me understand that reliable cloud operations require more than dashboards. A strong system needs observation, analysis, response, and continuous improvement.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Voice Agents: Building Human-Like AI Conversations at Scale
 
-#### Event-Driven Architecture
+**Speakers:** Trung Vu, Kiet Tran, and Nghi Danh
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+The Voice Agents session discussed how conversational AI is moving from simple scripted systems to more natural voice-based interactions. A modern voice agent should be able to understand context, maintain multi-turn conversations, respond naturally, and scale to serve many users.
 
-#### Compute Evolution
+The speakers also compared AI Voice Agents with traditional IVR systems. IVR usually follows fixed menus, while AI Voice Agents can understand natural language and react more flexibly to user needs. However, building this at scale requires careful handling of latency, speech quality, accuracy, privacy, and backend integration.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+This topic showed me that voice-based AI can be useful in customer service, internal support, smart hotlines, and business process automation.
 
-#### Amazon Q Developer
+#### AWS DevOps Agent: Your Always-Available Operations Teammate
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+**Speakers:** Bao Phan and Minh Nguyen Nguyen
+
+This session presented the idea of using AI as a supporting teammate for DevOps and operations teams. DevOps engineers often repeat tasks such as checking logs, reviewing metrics, monitoring resources, investigating failed pipelines, and responding to incidents. An AI-powered DevOps agent can help gather information, analyze operational signals, and suggest possible solutions.
+
+The session emphasized that AI should not be viewed as a full replacement for engineers. Instead, it can reduce repetitive work, speed up troubleshooting, and help teams reduce MTTD and MTTR. Engineers still need to make decisions, validate actions, and design safe operational processes.
+
+For me, this session connected AI directly with daily cloud operations and showed a practical direction for automation.
+
+#### AI-Powered Productivity: Workforce Planning for Enterprise
+
+**Speakers:** Truong Tran and Anh Dang
+
+This topic moved from technical operations to business productivity. The speakers explained how AI can help enterprises with workforce planning, resource allocation, and decision-making.
+
+Workforce planning is not only about counting employees. It also involves team capability, workload, business demand, performance, and long-term strategy. AI can support this process by aggregating data, identifying trends, detecting bottlenecks, and giving managers better insights.
+
+The session helped me see that AI is not limited to developers, DevOps teams, or infrastructure operations. It can also create value in management, human resources, finance, and enterprise planning.
+
+#### Building Secure Private MCP Connection with Amazon Quick
+
+**Speakers:** Toan Nguyen and Nghi Danh
+
+The final session focused on building secure and private connections for AI agents through **MCP - Model Context Protocol** with Amazon Quick. The main message was that AI systems must be designed with security from the beginning, especially when agents can connect to internal tools, data sources, and enterprise systems.
+
+If access is not controlled carefully, an AI agent may expose sensitive data or perform actions outside its intended scope. Because of that, private connectivity, least privilege, logging, monitoring, and auditability are essential.
+
+This session reminded me that a strong AI system should not only be intelligent and useful, but also controlled, traceable, and secure enough for real enterprise use.
 
 ### Key Takeaways
 
-#### Design Mindset
+The event highlighted three important trends.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+First, AI is becoming more relevant in cloud operations and DevOps. Sessions about Deep Response Engine and AWS DevOps Agent showed how AI can help detect incidents, analyze causes, and reduce repetitive operational work.
 
-#### Technical Architecture
+Second, AI Agents are evolving from simple chatbots into systems that can communicate, use tools, and support real tasks. Voice Agents are a clear example of how AI can create more natural interaction experiences.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+Third, security is a required part of AI adoption. When AI agents can access systems and data, teams must apply least privilege, private connectivity, logging, monitoring, and audit trails carefully.
 
-#### Modernization Strategy
+### What I Learned
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+After attending the event, I understood that modern AI is not just a tool for generating text or answering questions. It is becoming part of system architecture, business workflows, and operations.
 
-### Applying to Work
+I also learned that cloud architecture thinking is still very important when building AI systems. A useful AI solution needs compute, networking, IAM, monitoring, logging, storage, databases, and cost control. The AI model is only one component; the surrounding cloud architecture decides whether the system can run safely and reliably.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+Another important lesson is that DevOps automation can benefit from AI, but automation must be designed carefully. The more access an AI agent has, the stronger the control and monitoring must be.
 
-### Event Experience
+### Applying the Knowledge
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+The event gave me several ideas for future learning and personal projects. I can practice by building a small document-search chatbot, a voice assistant prototype, a log analysis tool, or a simple cloud resource checking agent.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+For AWS learning, the event reminded me to study services as connected architecture instead of isolated features. I need to understand how data flows, how permissions are granted, how logs are collected, and how systems are monitored.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+For career development, the event showed that AI can support many roles, including Backend Developer, Cloud Engineer, DevOps Engineer, Data Engineer, AI Engineer, and Solution Architect. The important skill is knowing how to apply AI to the right problem while keeping the system secure and maintainable.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+### Personal Reflection
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+FCAJ Community Day - June 2026 was a meaningful experience because it introduced many current technology directions in a practical way. The sessions helped me connect cloud computing, AI, DevOps, security, and enterprise productivity into one broader picture.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+I especially appreciated that the topics were not purely theoretical. They were linked to real operational problems such as incident response, system automation, voice interaction, workforce planning, and secure AI connectivity.
 
-#### Some event photos
-*Add your event photos here*  
+After the event, I felt more motivated to continue learning AWS and AI-related technologies. I also realized that future technical projects should not only focus on features, but also consider architecture, observability, security, cost, and long-term maintainability.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+### Conclusion
+
+Overall, FCAJ Community Day - June 2026 was a valuable event for expanding knowledge about AWS Cloud, AI Agents, Voice Agents, DevOps Automation, and security for modern AI systems.
+
+The biggest lesson I gained is that the current technology trend is a combination of **Cloud**, **AI**, and **DevOps**. Cloud provides the operating foundation, AI improves analysis and automation, and DevOps helps systems be delivered and operated more effectively.
+
+The knowledge from this event gives me a stronger foundation for future learning, personal projects, and career preparation in Backend, Cloud, DevOps, AI, or Solution Architecture.

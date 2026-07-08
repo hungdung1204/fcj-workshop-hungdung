@@ -1,126 +1,80 @@
----
+﻿---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-07-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# A Unified JSON Data Search System on AWS
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+## Introduction
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+Modern applications such as streaming platforms, e-commerce systems, and large data products rarely store all data in a single database. Some data requires low-latency access, some requires strong transactional consistency, and other data is stored for analytics or long-term reporting.
 
----
+This raises an important question: how can users search across many data sources quickly and accurately?
 
-## Architecture Guidance
+AWS solves this pattern by combining purpose-built data services with Amazon OpenSearch Service to create a unified search layer.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+![Unified JSON Search Architecture](/images/3-BlogsTranslated/blog1/image1.jpeg)
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+## Why not use only one database?
 
-**The solution architecture is now as follows:**
+When I first started building web applications, I thought a single database such as MySQL could store everything: users, products, orders, activity history, and logs. After studying AWS and large-scale system architectures, I realized that this approach works only for small projects.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+As data grows to millions or billions of records, one database becomes a limitation for performance, scalability, and operational cost. Each data type should use the tool that fits it best:
 
----
+* DynamoDB is suitable for fast key-value and real-time access.
+* Aurora PostgreSQL is suitable for transactional data.
+* DocumentDB is suitable for flexible JSON documents.
+* S3 is suitable for large-scale storage and data lakes.
+* Redshift is suitable for analytics and reporting.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Overall architecture
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+The system has two main layers.
 
----
+The **data storage layer** includes Amazon DynamoDB, Amazon Aurora PostgreSQL, Amazon DocumentDB, Amazon S3, and Amazon Redshift. Each service stores the type of data it handles best.
 
-## Technology Choices and Communication Scope
+The **search layer** uses Amazon OpenSearch Service. Searchable data is synchronized into OpenSearch so users can query one unified search endpoint instead of searching each source database separately.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+## AWS service roles
 
----
+### Amazon DynamoDB
 
-## The Pub/Sub Hub
+DynamoDB is a low-latency NoSQL database with high scalability. It fits user profiles, activity history, and real-time application state. For example, a streaming platform can store a user's current movie and resume timestamp so playback can continue quickly on another device.
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+### Amazon Aurora PostgreSQL
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Aurora PostgreSQL is used for payments, orders, and other transactional information. Because it supports ACID transactions, Aurora helps keep business data consistent and reliable.
 
----
+### Amazon DocumentDB
 
-## Core Microservice
+DocumentDB stores flexible JSON data such as product information, metadata, and content with changing attributes. This is useful in e-commerce, where one product may have completely different attributes from another.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+### Amazon S3
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Amazon S3 acts as a data lake, log archive, and backup store. It provides low-cost storage with virtually unlimited scalability and is often the foundation for analytics pipelines.
 
----
+### Amazon Redshift
 
-## Front Door Microservice
+Amazon Redshift handles large-scale analytical workloads. With the SUPER data type and PartiQL, Redshift can query complex JSON structures efficiently. In a streaming platform, Redshift can analyze billions of play, pause, and skip events from S3, calculate trend scores, and export aggregated results back to the search layer.
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### Amazon OpenSearch Service
 
----
+OpenSearch is the central search component. It supports full-text search, fuzzy search, auto suggestion, vector search, and AI search. For example, when a user searches for a product with incomplete or imperfect keywords, OpenSearch can still return relevant results.
 
-## Staging ER7 Microservice
+## Synchronizing data into OpenSearch
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+OpenSearch Ingestion (OSI) collects, transforms, and synchronizes data into Amazon OpenSearch Service. The synchronization process usually has two stages:
 
----
+* **Initial Load:** load the baseline data from DynamoDB, Aurora, DocumentDB, or S3.
+* **Change Data Capture:** after the baseline is created, synchronize only new changes.
 
-## New Features in the Solution
+This design reduces load on source systems, lowers cost, and keeps search data close to real time.
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+## Conclusion
+
+Combining DynamoDB, Aurora, DocumentDB, S3, Redshift, and OpenSearch creates a modern data architecture that is flexible and scalable. Amazon OpenSearch Service acts as the unified search layer that connects data from multiple systems and gives users a powerful search experience.
+
+Reference: <https://awsstudygroup.com/2026/05/20/cach-xay-dung-giai-phap-tim-kiem-json-hop-nhat-trong-aws/>

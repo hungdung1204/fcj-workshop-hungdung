@@ -1,59 +1,50 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
+date: 2026-05-29
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 7:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Database Schema Conversion & Migration.
+* Nắm vai trò của AWS Schema Conversion Tool và AWS Database Migration Service.
+* Thực hành cấu hình source database và target database.
+* Hiểu quy trình migration database từ hệ quản trị cơ sở dữ liệu nguồn sang hệ quản trị cơ sở dữ liệu đích.
+* Theo dõi migration task và kiểm tra dữ liệu sau migration.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - Tìm hiểu tổng quan workshop Database Schema Conversion & Migration <br> - Nắm mục tiêu của bài lab <br> - Ghi chú các thành phần chính gồm source database, target database, AWS SCT và AWS DMS | 29/05/2026 | 29/05/2026 | <https://000043.awsstudygroup.com/> <br><https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i> |
+| 2 | - Tìm hiểu AWS Schema Conversion Tool <br> - Nắm vai trò của SCT trong chuyển đổi schema <br> - Ghi chú quy trình đánh giá và chuyển đổi schema <br> - Xác định các thành phần cần kiểm tra trước khi migration | 01/06/2026 | 01/06/2026 | <https://000043.awsstudygroup.com/> |
+| 3 | - Tìm hiểu AWS Database Migration Service <br> - Nắm vai trò của replication instance, source endpoint, target endpoint và migration task <br> - Ghi chú các kiểu migration như full load và ongoing replication | 02/06/2026 | 02/06/2026 | <https://000043.awsstudygroup.com/> |
+| 4 | - Thực hành cấu hình source database và target database <br> - Kiểm tra connection giữa các thành phần <br> - Ghi chú lỗi thường gặp về Security Group, credential và endpoint <br> - Chuẩn bị migration task | 03/06/2026 | 03/06/2026 | <https://000043.awsstudygroup.com/> |
+| 5 | - Thực hành tạo migration task <br> - Theo dõi tiến trình migration <br> - Kiểm tra dữ liệu sau khi migration <br> - Dọn dẹp tài nguyên sau khi hoàn thành bài lab | 04/06/2026 | 04/06/2026 | <https://000043.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 7:
+**Tổng quát:**
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Trong tuần này tôi đã hiểu quy trình chuyển đổi schema và migration database trên AWS. Tôi biết vai trò của AWS SCT và AWS DMS trong việc hỗ trợ di chuyển dữ liệu giữa các hệ quản trị cơ sở dữ liệu.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Lý thuyết đã học:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Database Schema Conversion.
+* AWS Schema Conversion Tool.
+* AWS Database Migration Service.
+* Source endpoint và target endpoint.
+* Replication instance và migration task.
+* Full load và ongoing replication.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Thực hành với bài lab:**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Cấu hình source database.
+* Cấu hình target database.
+* Tạo endpoint cho migration.
+* Tạo migration task.
+* Theo dõi tiến trình migration.
+* Kiểm tra dữ liệu sau migration.
+* Dọn dẹp tài nguyên sau khi hoàn thành lab.

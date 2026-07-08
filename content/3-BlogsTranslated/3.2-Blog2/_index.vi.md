@@ -1,127 +1,96 @@
----
+﻿---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-01
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Amazon DynamoDB - Chọn Chế Độ Throughput Phù Hợp Cho Ứng Dụng
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+## Giới thiệu
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Trong quá trình phát triển ứng dụng trên AWS, việc lựa chọn cơ sở dữ liệu phù hợp ảnh hưởng trực tiếp đến hiệu năng, khả năng mở rộng và chi phí vận hành. Với những ứng dụng có lưu lượng lớn hoặc thay đổi liên tục như thương mại điện tử, game online hay hệ thống serverless, Amazon DynamoDB là một lựa chọn phổ biến.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+DynamoDB là dịch vụ NoSQL được AWS quản lý hoàn toàn. Người dùng không cần cài đặt máy chủ, bảo trì hay mở rộng hạ tầng. Tuy nhiên, người phát triển cần hiểu rõ cách DynamoDB xử lý throughput để chọn chế độ phù hợp.
 
----
+![DynamoDB Throughput](/images/3-BlogsTranslated/blog2/image1.jpeg)
 
-## Hướng dẫn kiến trúc
+## Capacity Mode trong DynamoDB
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Khi tạo bảng DynamoDB, người dùng cần chọn Capacity Mode. Đây là cơ chế quản lý tài nguyên để xử lý yêu cầu đọc và ghi.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+DynamoDB cung cấp hai chế độ chính:
 
-**Kiến trúc giải pháp bây giờ như sau:**
+* On-Demand Capacity
+* Provisioned Capacity
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Hai chế độ này đều phục vụ mục tiêu xử lý dữ liệu nhanh chóng nhưng khác nhau về cách hoạt động và mô hình tính phí.
 
----
+## On-Demand Capacity
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+On-Demand Capacity là chế độ trong đó AWS tự động quản lý khả năng xử lý của bảng DynamoDB. Người dùng không cần khai báo trước số lượng Read Capacity Unit (RCU) hay Write Capacity Unit (WCU). DynamoDB sẽ tự mở rộng hoặc thu hẹp theo lưu lượng thực tế.
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Chế độ này phù hợp với ứng dụng mới phát triển hoặc có lưu lượng khó dự đoán. Ví dụ, một startup vừa ra mắt ứng dụng đặt đồ ăn sẽ khó biết chính xác số lượng người dùng trong những ngày đầu. On-Demand giúp hệ thống đáp ứng khi traffic tăng mà không cần cấu hình trước.
 
----
+### Ưu điểm
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+* Dễ triển khai, không cần tính toán RCU/WCU.
+* Tự động mở rộng theo nhu cầu thực tế.
+* Chỉ trả tiền theo số request đọc và ghi thực tế.
+* Phù hợp với kiến trúc serverless, Lambda và API Gateway.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+### Hạn chế
 
----
+Nếu hệ thống luôn có lưu lượng lớn và ổn định, On-Demand có thể đắt hơn Provisioned Capacity. Ngoài ra, vì chi phí phụ thuộc vào request thực tế nên ngân sách có thể khó dự đoán hơn.
 
-## The pub/sub hub
+### Khi nào nên dùng On-Demand?
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+On-Demand phù hợp cho ứng dụng mới, hệ thống đang thử nghiệm, startup chưa có dữ liệu dự báo, website flash sale, game online có traffic theo sự kiện và các hệ thống serverless.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+## Provisioned Capacity
 
----
+Provisioned Capacity là chế độ người dùng khai báo trước lượng tài nguyên mà bảng DynamoDB sẽ sử dụng.
 
-## Core microservice
+* **Read Capacity Unit (RCU):** đơn vị đo khả năng đọc dữ liệu.
+* **Write Capacity Unit (WCU):** đơn vị đo khả năng ghi dữ liệu.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Ví dụ, nếu một website xử lý 500 đơn hàng mỗi giây và mỗi đơn hàng khoảng 1 KB, bảng cần tối thiểu 500 WCU để ghi dữ liệu ổn định.
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+### Auto Scaling
 
----
+Provisioned Capacity có thể kết hợp với Auto Scaling. Khi mức sử dụng vượt ngưỡng như 70%, DynamoDB có thể tự tăng RCU/WCU. Khi lưu lượng giảm, hệ thống tự giảm capacity để tiết kiệm chi phí.
 
-## Front door microservice
+### Ưu điểm
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+* Tiết kiệm chi phí nếu lưu lượng ổn định.
+* Chủ động kiểm soát tài nguyên.
+* Phù hợp với hệ thống lớn như ERP, CRM, quản lý kho hoặc API nội bộ.
 
----
+### Hạn chế
 
-## Staging ER7 microservice
+Nếu cấu hình quá thấp, DynamoDB có thể bị throttling. Nếu cấu hình quá cao nhưng sử dụng ít, doanh nghiệp vẫn phải trả tiền cho phần capacity không dùng đến. Việc theo dõi CloudWatch và điều chỉnh capacity cũng đòi hỏi kinh nghiệm vận hành.
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+## Warm Throughput
 
----
+Warm Throughput giúp DynamoDB chuẩn bị sẵn năng lực xử lý cho các đợt tăng lưu lượng lớn. Tính năng này hữu ích cho flash sale, hệ thống bán vé, game online ra mắt phiên bản mới hoặc chiến dịch marketing có thời điểm truy cập cao.
 
-## Tính năng mới trong giải pháp
+## Throttling và Hot Partition
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Throttling xảy ra khi lượng request vượt quá khả năng xử lý hiện tại của bảng hoặc từng partition. Ví dụ, bảng chỉ có 500 WCU nhưng ứng dụng gửi 2.000 yêu cầu ghi mỗi giây, DynamoDB sẽ giới hạn tốc độ xử lý.
+
+Hot Partition xảy ra khi phần lớn request tập trung vào một partition key duy nhất. Để tránh tình trạng này, cần thiết kế partition key sao cho dữ liệu được phân bố đều.
+
+## Nên chọn Capacity Mode nào?
+
+Nên chọn **On-Demand Capacity** khi ứng dụng mới phát triển, chưa dự đoán được người dùng, có traffic đột biến hoặc xây dựng theo kiến trúc serverless.
+
+Nên chọn **Provisioned Capacity** khi hệ thống đã ổn định, có dữ liệu lịch sử để dự đoán lưu lượng, muốn tối ưu chi phí dài hạn và có đội ngũ vận hành theo dõi capacity.
+
+Trong thực tế, nhiều doanh nghiệp bắt đầu với On-Demand để giảm công sức quản trị. Khi ứng dụng phát triển và lưu lượng ổn định hơn, họ chuyển sang Provisioned Capacity để tiết kiệm chi phí.
+
+## Kết luận
+
+Throughput là yếu tố quan trọng khi làm việc với DynamoDB vì nó ảnh hưởng đến hiệu năng, khả năng mở rộng và chi phí. On-Demand đơn giản và linh hoạt, còn Provisioned giúp kiểm soát chi phí tốt hơn với workload ổn định.
+
+Bên cạnh Capacity Mode, các khái niệm như Warm Throughput, Throttling và Hot Partition cũng cho thấy rằng thiết kế partition key, theo dõi CloudWatch và sử dụng Auto Scaling đúng cách là điều cần thiết để hệ thống DynamoDB vận hành hiệu quả.

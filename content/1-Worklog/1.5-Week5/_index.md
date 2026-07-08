@@ -1,57 +1,48 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
+date: 2026-05-15
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 
 ### Week 5 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn about main EC2 components and how to operate compute in AWS.
+* Understand Auto Scaling, EBS, Instance Store, User Data, and Metadata.
+* Practice backup, Storage Gateway, and deploy EC2 for storage purposes.
+* Practice deploying a static website using S3 and CloudFront.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - Learn about EC2, instance types, AMI, key pair <br> - Understand EBS, Instance Store, User Data, Metadata <br> - Review important components when operating compute on AWS | 15/05/2026 | 15/05/2026 | <https://youtu.be/-t5h4N6vfBs?si=GeVdhO9IEDjzzS_D> <br><https://youtu.be/e7XeKdOVq40?si=T3I4pgPoEfVytcU3> <br><https://youtu.be/yAR6QRT3N1k?si=GQghyBwLCpijrDON> <br><https://youtu.be/hKr_TfGP7NY?si=gR2MqaLAFrqL-KBo> <br><https://youtu.be/6IHNDJ85aoQ?si=M0puk6DJpliO7ahf> <br><https://youtu.be/_v_43Wi7zjo?si=qNDVWzKcQFNO2mGh> <br><https://youtu.be/Ew3QRaKJQSA?si=xNvXvD8yFhnSMJby> |
+| 2 | - Understand EC2 Auto Scaling and how to scale VMs <br> - Learn about storage and compute services like EFS, FSx, Lightsail, MGN at a high level <br> - Note use cases for each service | 18/05/2026 | 18/05/2026 | <https://youtu.be/bbLcPitXJSY?si=eyVnxvL9ho0LpUYy> <br><https://youtu.be/hFVYG8WqfU0?si=9Px4wmR4IRZxk15n> |
+| 3 | - Practice: <br>     + Deploy AWS Backup <br>     + Create backup plan <br>     + Test restore & cleanup <br>     + Clean up backup | 19/05/2026 | 19/05/2026 | <https://000013.awsstudygroup.com/> |
+| 4 | - Practice: <br>     + Create S3 bucket for Storage Gateway <br>     + Create EC2 for Storage Gateway <br>     + Create Storage Gateway + File Share <br>     + Clean up Storage Gateway | 20/05/2026 | 20/05/2026 | <https://000024.awsstudygroup.com/> |
+| 5 | - Practice: <br>     + Create bucket, upload data <br>     + Enable static website hosting <br>     + Configure public access block <br>     + Configure CloudFront and test website <br>     + Clean up website, CloudFront and bucket | 21/05/2026 | 21/05/2026 | <https://000057.awsstudygroup.com/> |
 
 
 ### Week 5 Achievements:
+**Overview:**
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week I understood how EC2 operates, instance storage types, Auto Scaling, and backup. I also got familiar with Storage Gateway and deployed a static website using S3 combined with CloudFront.
 
-* Successfully created and configured an AWS Free Tier account.
+**Learned theory:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Concepts of EC2 architecture, AMI, key pair.
+* EBS and Instance Store.
+* User Data and Metadata.
+* EC2 Auto Scaling.
+* High-level overview of EFS, FSx, Lightsail, and MGN.
+* Storage Gateway and Backup platform.
+* S3 static website hosting and CloudFront.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Hands-on labs:**
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Create backup plan and test restore.
+* Create Storage Gateway and file share.
+* Create S3 bucket, upload data and enable static website hosting.
+* Configure CloudFront to distribute website content.
+* Clean up backup, Storage Gateway, CloudFront, and S3 resources after completing the lab.
