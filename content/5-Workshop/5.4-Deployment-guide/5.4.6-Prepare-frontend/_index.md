@@ -21,7 +21,7 @@ After Stack 01 is created successfully, open the stack outputs and copy:
 - `FrontendBucketName`
 - `FrontendCloudFrontDistributionId`
 
-![Frontend stack outputs](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image20.png)
+![Frontend stack outputs](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image20.png)
 
 Set the frontend deployment variables:
 
@@ -47,6 +47,6 @@ aws cloudfront create-invalidation `
   --paths "/*"
 ```
 
-![Sync frontend to S3](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image21.png)
+![Sync frontend to S3](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image21.png)
 
-![Create CloudFront invalidation](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image22.png)
+![Create CloudFront invalidation](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image22.png)

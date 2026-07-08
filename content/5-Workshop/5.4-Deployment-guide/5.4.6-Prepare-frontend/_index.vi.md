@@ -21,7 +21,7 @@ Sau khi Stack 01 tạo thành công, mở phần outputs của stack và lấy:
 - `FrontendBucketName`
 - `FrontendCloudFrontDistributionId`
 
-![Output của frontend stack](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image20.png)
+![Output của frontend stack](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image20.png)
 
 Khai báo các biến triển khai frontend:
 
@@ -47,6 +47,6 @@ aws cloudfront create-invalidation `
   --paths "/*"
 ```
 
-![Sync frontend lên S3](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image21.png)
+![Sync frontend lên S3](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image21.png)
 
-![Tạo CloudFront invalidation](/fcj-workshop-haidang/images/5-Workshop/hashop-deployment/image22.png)
+![Tạo CloudFront invalidation](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image22.png)
