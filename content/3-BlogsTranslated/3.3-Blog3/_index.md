@@ -12,7 +12,7 @@ pre: " <b> 3.3. </b> "
 
 When operating AWS infrastructure, EC2 cost is often one of the easiest areas to overspend. Teams may choose instance sizes that are larger than necessary, reuse old configurations, or forget to review capacity after workload changes. As a result, many instances run with more resources than they need.
 
-![EC2 Right-Sizing Automation](/images/3-BlogsTranslated/blog3/image1.png)
+![EC2 Right-Sizing Automation](images/3-BlogsTranslated/blog3/image1.png)
 
 ## 2. Why waste happens
 

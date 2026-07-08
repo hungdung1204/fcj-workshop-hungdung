@@ -14,7 +14,7 @@ When building applications on AWS, choosing the right database affects performan
 
 DynamoDB is a fully managed NoSQL database. Developers do not need to manage servers, maintenance, or infrastructure scaling. However, they still need to understand throughput modes in order to choose the right operating model.
 
-![DynamoDB Throughput](/images/3-BlogsTranslated/blog2/image1.jpeg)
+![DynamoDB Throughput](images/3-BlogsTranslated/blog2/image1.jpeg)
 
 ## Capacity Mode in DynamoDB
 

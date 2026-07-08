@@ -16,7 +16,7 @@ This raises an important question: how can users search across many data sources
 
 AWS solves this pattern by combining purpose-built data services with Amazon OpenSearch Service to create a unified search layer.
 
-![Unified JSON Search Architecture](/images/3-BlogsTranslated/blog1/image1.jpeg)
+![Unified JSON Search Architecture](images/3-BlogsTranslated/blog1/image1.jpeg)
 
 ## Why not use only one database?
 
