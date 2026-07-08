@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5.4.1. </b> "
 ---
 
-First, create a release workspace and clone the Lambda PostConfirmation repository.
+First, create the `D:\HaShop-release` folder. This folder will be used as the main release workspace for the whole HaShop deployment, including storing project source files, Lambda packages, CloudFormation templates, and other artifacts needed throughout the deployment guide. After creating the workspace, clone the Lambda PostConfirmation repository into it.
 
 ```powershell
 mkdir D:\HaShop-release

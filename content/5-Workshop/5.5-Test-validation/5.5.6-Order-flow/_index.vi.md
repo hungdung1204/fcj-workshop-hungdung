@@ -1,9 +1,9 @@
 ﻿---
 title: "Kiểm tra luồng đặt hàng"
 date: 2026-07-04
-weight: 5
+weight: 6
 chapter: false
-pre: " <b> 5.5.5. </b> "
+pre: " <b> 5.5.6. </b> "
 ---
 
 Thực hiện các kịch bản đặt hàng trên website:

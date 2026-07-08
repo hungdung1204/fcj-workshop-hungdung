@@ -1,9 +1,9 @@
 ﻿---
 title: "Kiểm tra AWS WAF"
 date: 2026-07-04
-weight: 7
+weight: 8
 chapter: false
-pre: " <b> 5.5.7. </b> "
+pre: " <b> 5.5.8. </b> "
 ---
 
 Trên AWS Console, mở:

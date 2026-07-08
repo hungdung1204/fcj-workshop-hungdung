@@ -19,3 +19,5 @@ This section provides the end-to-end deployment guide for HaShop. Each step is s
 **5.4.5:** [Deploy CloudFormation stacks](5.4.5-Deploy-cloudformation-stacks/)
 
 **5.4.6:** [Prepare and publish the frontend](5.4.6-Prepare-frontend/)
+
+> **Note:** Direct folder paths used in this guide, such as `mkdir D:\HaShop-release`, `cd D:\HaShop-release`, or `cd D:\HaShop-release\cognito-post-confirmation-db`, are examples for reference only. Replace them with the real path to the workspace folder on your own machine.

@@ -1,9 +1,9 @@
 ﻿---
 title: "Validate the order flow"
 date: 2026-07-04
-weight: 5
+weight: 6
 chapter: false
-pre: " <b> 5.5.5. </b> "
+pre: " <b> 5.5.6. </b> "
 ---
 
 Run the following order scenarios on the website:

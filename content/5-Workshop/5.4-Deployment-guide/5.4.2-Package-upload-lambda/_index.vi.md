@@ -8,10 +8,18 @@ pre: " <b> 5.4.2. </b> "
 
 Lambda PostConfirmation được Amazon Cognito gọi sau khi người dùng xác nhận tài khoản. Lambda này ghi thông tin user vào Amazon RDS MySQL.
 
+Vẫn giữ cửa sổ terminal cũ từ bước trước và chạy các lệnh bên dưới trong chính cửa sổ này. Terminal này đang chứa các biến triển khai:
+
+```powershell
+$REGION = "ap-southeast-1"
+$ACCOUNT_ID = $(aws sts get-caller-identity --query Account --output text)
+$ARTIFACT_BUCKET = "hashop-artifacts-$ACCOUNT_ID-$REGION"
+```
+
 Di chuyển vào thư mục source của Lambda:
 
 ```powershell
-cd D:\HaShop\hashop-infra\lambda\post-confirmation
+cd D:\HaShop-release\cognito-post-confirmation-db
 ```
 
 Cài dependency cần thiết:

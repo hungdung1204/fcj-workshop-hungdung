@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5.4.1. </b> "
 ---
 
-Đầu tiên, tạo thư mục release và clone repository của Lambda PostConfirmation.
+Đầu tiên, tạo thư mục `D:\HaShop-release`. Đây sẽ là thư mục thao tác chính cho toàn bộ quá trình triển khai HaShop, dùng để lưu source code của dự án, package Lambda, template CloudFormation và các artifact cần thiết trong các bước triển khai phía sau. Sau khi tạo thư mục làm việc này, clone repository của Lambda PostConfirmation vào bên trong.
 
 ```powershell
 mkdir D:\HaShop-release

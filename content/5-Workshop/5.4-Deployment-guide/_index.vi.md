@@ -19,3 +19,5 @@ Phần này trình bày quy trình triển khai HaShop end-to-end. Mỗi bước
 **5.4.5:** [Triển khai CloudFormation stack](5.4.5-Deploy-cloudformation-stacks/)
 
 **5.4.6:** [Chuẩn bị và publish frontend](5.4.6-Prepare-frontend/)
+
+> **Lưu ý:** Các đường dẫn trực tiếp đến thư mục trong hướng dẫn, ví dụ `mkdir D:\HaShop-release`, `cd D:\HaShop-release` hoặc `cd D:\HaShop-release\cognito-post-confirmation-db`, chỉ mang giá trị tham khảo. Vui lòng thay thế bằng đường dẫn thực tế đến thư mục workspace trên máy của bạn.

@@ -16,8 +16,10 @@ After deployment, validate the system from the user interface, AWS Console, logs
 
 **5.5.4:** [Add a product](5.5.4-Add-product/)
 
-**5.5.5:** [Validate the order flow](5.5.5-Order-flow/)
+**5.5.5:** [Customer registration, login, profile update, and payment method](5.5.5-Customer-account-payment/)
 
-**5.5.6:** [Review CloudWatch logs](5.5.6-CloudWatch-logs/)
+**5.5.6:** [Validate the order flow](5.5.6-Order-flow/)
 
-**5.5.7:** [Check AWS WAF](5.5.7-Check-WAF/)
+**5.5.7:** [Review CloudWatch logs](5.5.7-CloudWatch-logs/)
+
+**5.5.8:** [Check AWS WAF](5.5.8-Check-WAF/)

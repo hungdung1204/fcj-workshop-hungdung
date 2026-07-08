@@ -1,9 +1,9 @@
 ﻿---
 title: "Xem log trong CloudWatch"
 date: 2026-07-04
-weight: 6
+weight: 7
 chapter: false
-pre: " <b> 5.5.6. </b> "
+pre: " <b> 5.5.7. </b> "
 ---
 
 Trên AWS Console, mở:
