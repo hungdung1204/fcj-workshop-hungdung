@@ -16,11 +16,11 @@ Enter the basic product information:
 - Main image
 - Additional images
 
-![Enter product information](/images/5-Workshop/hashop-test-cleanup/image3.png)
+![Enter product information](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image3.png)
 
 Add product variants and quantity for each variant.
 
-![Add product variants and inventory](/images/5-Workshop/hashop-test-cleanup/image4.png)
+![Add product variants and inventory](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image4.png)
 
 Choose **Create** to create the product.
 
@@ -30,6 +30,6 @@ Expected result:
 - The product appears on the home page or product listing page.
 - Product images and variant information are displayed correctly.
 
-![Product appears in product list](/images/5-Workshop/hashop-test-cleanup/image5.png)
+![Product appears in product list](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image5.png)
 
-![Product appears on HaShop frontend](/images/5-Workshop/hashop-test-cleanup/image6.png)
+![Product appears on HaShop frontend](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image6.png)

@@ -14,4 +14,4 @@ Kết quả mong đợi:
 - Không còn stack phụ thuộc bị kẹt ở trạng thái xóa lỗi.
 - AWS account không còn giữ tài nguyên lab có thể phát sinh chi phí.
 
-![Xóa WAF stack](/images/5-Workshop/hashop-test-cleanup/image15.png)
+![Xóa WAF stack](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image15.png)

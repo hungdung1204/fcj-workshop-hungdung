@@ -19,7 +19,7 @@ Check the following WAF views:
 - Sampled requests
 - Rule metrics
 
-![AWS WAF metrics](/images/5-Workshop/hashop-test-cleanup/image10.png)
+![AWS WAF metrics](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image10.png)
 
 Expected result:
 

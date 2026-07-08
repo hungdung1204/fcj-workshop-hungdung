@@ -19,7 +19,7 @@ Kiểm tra các phần sau:
 - Sampled requests
 - Rule metrics
 
-![Metric của AWS WAF](/images/5-Workshop/hashop-test-cleanup/image10.png)
+![Metric của AWS WAF](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image10.png)
 
 Kết quả mong đợi:
 

@@ -20,4 +20,4 @@ Repository này chứa các template dùng ở bước tiếp theo:
 - `02-cf-hashop-ecs-services.yaml`
 - `03-cf-hashop-db-init.yaml`
 
-![Clone CloudFormation repository](/images/5-Workshop/hashop-deployment/image6.png)
+![Clone CloudFormation repository](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image6.png)

@@ -14,4 +14,4 @@ Kết quả mong đợi:
 - Không còn stack phụ thuộc bị kẹt ở trạng thái xóa lỗi.
 - AWS account không còn giữ tài nguyên lab có thể phát sinh chi phí.
 
-![Empty S3 bucket do foundation tạo](/images/5-Workshop/hashop-test-cleanup/image13.png)
+![Empty S3 bucket do foundation tạo](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image13.png)

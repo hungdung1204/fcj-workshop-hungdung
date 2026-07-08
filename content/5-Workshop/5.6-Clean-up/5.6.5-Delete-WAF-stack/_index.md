@@ -14,4 +14,4 @@ Expected result:
 - No dependent stack remains in a failed deletion state.
 - The AWS account no longer keeps resources that can generate lab costs.
 
-![Delete the WAF stack](/images/5-Workshop/hashop-test-cleanup/image15.png)
+![Delete the WAF stack](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image15.png)

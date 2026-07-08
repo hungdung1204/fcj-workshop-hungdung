@@ -16,7 +16,7 @@ Trong các ứng dụng hiện đại như nền tảng streaming, thương mạ
 
 AWS cung cấp một hướng tiếp cận hiệu quả bằng cách kết hợp nhiều dịch vụ lưu trữ dữ liệu với Amazon OpenSearch Service để xây dựng một hệ thống tìm kiếm hợp nhất.
 
-![Unified JSON Search Architecture](images/3-BlogsTranslated/blog1/image1.jpeg)
+![Unified JSON Search Architecture](/fcj-workshop-hungdung/images/3-BlogsTranslated/blog1/image1.jpeg)
 
 ## Vì sao không sử dụng một cơ sở dữ liệu duy nhất?
 

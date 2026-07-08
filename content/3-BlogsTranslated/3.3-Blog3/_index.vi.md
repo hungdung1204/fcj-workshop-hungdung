@@ -12,7 +12,7 @@ pre: " <b> 3.3. </b> "
 
 Khi vận hành hạ tầng AWS, chi phí EC2 thường là một trong những phần dễ tăng nhất. Nhiều đội triển khai EC2 theo hướng "chọn dư cho chắc", copy cấu hình từ dự án cũ hoặc không rà soát lại sau khi workload thay đổi. Kết quả là nhiều instance chạy quá lớn so với nhu cầu thực tế.
 
-![EC2 Right-Sizing Automation](images/3-BlogsTranslated/blog3/image1.png)
+![EC2 Right-Sizing Automation](/fcj-workshop-hungdung/images/3-BlogsTranslated/blog3/image1.png)
 
 ## 2. Vấn đề: vì sao lãng phí xảy ra?
 

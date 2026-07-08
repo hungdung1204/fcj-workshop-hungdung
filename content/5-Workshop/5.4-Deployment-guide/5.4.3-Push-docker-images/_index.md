@@ -46,7 +46,7 @@ aws ecr get-login-password --region $REGION | docker login --username AWS --pass
 
 If the terminal shows `Login Succeeded`, Docker can push images to ECR.
 
-![Docker login to ECR](/images/5-Workshop/hashop-deployment/image3.png)
+![Docker login to ECR](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image3.png)
 
 Download the tested container image release package:
 
@@ -90,6 +90,6 @@ foreach ($img in $IMAGES) {
 
 If the image package is stored in another folder, update `$IMAGE_DIR` to the actual path.
 
-![Load and push Docker images](/images/5-Workshop/hashop-deployment/image4.png)
+![Load and push Docker images](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image4.png)
 
-![Docker images pushed to ECR](/images/5-Workshop/hashop-deployment/image5.png)
+![Docker images pushed to ECR](/fcj-workshop-hungdung/images/5-Workshop/hashop-deployment/image5.png)

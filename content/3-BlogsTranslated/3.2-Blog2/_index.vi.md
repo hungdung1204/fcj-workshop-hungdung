@@ -14,7 +14,7 @@ Trong quá trình phát triển ứng dụng trên AWS, việc lựa chọn cơ 
 
 DynamoDB là dịch vụ NoSQL được AWS quản lý hoàn toàn. Người dùng không cần cài đặt máy chủ, bảo trì hay mở rộng hạ tầng. Tuy nhiên, người phát triển cần hiểu rõ cách DynamoDB xử lý throughput để chọn chế độ phù hợp.
 
-![DynamoDB Throughput](images/3-BlogsTranslated/blog2/image1.jpeg)
+![DynamoDB Throughput](/fcj-workshop-hungdung/images/3-BlogsTranslated/blog2/image1.jpeg)
 
 ## Capacity Mode trong DynamoDB
 

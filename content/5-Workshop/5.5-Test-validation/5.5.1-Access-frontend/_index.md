@@ -20,4 +20,4 @@ Expected result:
 - Static assets are served through CloudFront.
 - The page does not show a browser-side loading error.
 
-![HaShop frontend loaded successfully](/images/5-Workshop/hashop-test-cleanup/image1.png)
+![HaShop frontend loaded successfully](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image1.png)

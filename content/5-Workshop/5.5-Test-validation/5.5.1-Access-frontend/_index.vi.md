@@ -20,4 +20,4 @@ Kết quả mong đợi:
 - Static asset được phân phối thông qua CloudFront.
 - Trình duyệt không hiển thị lỗi tải trang.
 
-![Trang chủ HaShop hiển thị thành công](/images/5-Workshop/hashop-test-cleanup/image1.png)
+![Trang chủ HaShop hiển thị thành công](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image1.png)

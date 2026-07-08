@@ -16,11 +16,11 @@ Nhập các thông tin cơ bản của sản phẩm:
 - Ảnh chính
 - Các ảnh phụ
 
-![Nhập thông tin sản phẩm](/images/5-Workshop/hashop-test-cleanup/image3.png)
+![Nhập thông tin sản phẩm](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image3.png)
 
 Thêm biến thể và số lượng tồn kho cho từng biến thể.
 
-![Thêm biến thể và tồn kho sản phẩm](/images/5-Workshop/hashop-test-cleanup/image4.png)
+![Thêm biến thể và tồn kho sản phẩm](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image4.png)
 
 Chọn **Create** để tạo sản phẩm.
 
@@ -30,6 +30,6 @@ Kết quả mong đợi:
 - Sản phẩm xuất hiện ở trang chủ hoặc trang danh sách sản phẩm.
 - Hình ảnh và thông tin biến thể hiển thị đúng.
 
-![Sản phẩm xuất hiện trong danh sách](/images/5-Workshop/hashop-test-cleanup/image5.png)
+![Sản phẩm xuất hiện trong danh sách](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image5.png)
 
-![Sản phẩm hiển thị trên frontend HaShop](/images/5-Workshop/hashop-test-cleanup/image6.png)
+![Sản phẩm hiển thị trên frontend HaShop](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image6.png)

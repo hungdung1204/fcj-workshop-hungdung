@@ -24,4 +24,4 @@ Expected result:
 - `order-worker` is running.
 - `notification-worker` is running.
 
-![ECS services running](/images/5-Workshop/hashop-test-cleanup/image2.png)
+![ECS services running](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image2.png)

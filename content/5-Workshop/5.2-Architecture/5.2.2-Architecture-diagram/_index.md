@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5.2.2. </b> "
 ---
 
-![HaShop AWS Microservices Architecture](/images/5-Workshop/hashop-theory/hashop-architecture.png)
+![HaShop AWS Microservices Architecture](/fcj-workshop-hungdung/images/5-Workshop/hashop-theory/hashop-architecture.png)
 
 *Figure 1. HaShop AWS Microservices Architecture with CloudFront, AWS WAF, ECS Fargate, RDS, SNS/SQS and VPC Endpoints.*
 

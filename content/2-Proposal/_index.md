@@ -43,7 +43,7 @@ This solution makes the system easier to scale by business domain, reduces deplo
 
 HaShop uses a cloud-native AWS architecture with six main layers: **Edge/Frontend Layer**, **Authentication Layer**, **Application Layer**, **Async Processing Layer**, **Data Layer**, and **Management/Observability Layer**.
 
-![HaShop AWS Architecture](images/2-Proposal/hashop-architecture.png)
+![HaShop AWS Architecture](/fcj-workshop-hungdung/mages/2-Proposal/hashop-architecture.png)
 
 In the Edge/Frontend Layer, users access the website through Amazon CloudFront. CloudFront distributes the static frontend from S3, applies CloudFront Function for route rewriting, and forwards `/api/*` requests to the Application Load Balancer. AWS WAF is placed at the edge to improve protection against abnormal requests.
 

@@ -21,6 +21,6 @@ Kết quả mong đợi:
 - `payment-worker` xử lý message từ SQS.
 - `order-worker` cập nhật trạng thái đơn hàng sau khi có kết quả thanh toán.
 
-![Luồng checkout đơn hàng](/images/5-Workshop/hashop-test-cleanup/image7.png)
+![Luồng checkout đơn hàng](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image7.png)
 
-![Kiểm tra trạng thái đơn hàng](/images/5-Workshop/hashop-test-cleanup/image8.png)
+![Kiểm tra trạng thái đơn hàng](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image8.png)

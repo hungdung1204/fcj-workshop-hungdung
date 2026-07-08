@@ -24,4 +24,4 @@ Kết quả mong đợi:
 - `order-worker` đang chạy.
 - `notification-worker` đang chạy.
 
-![Các ECS service đang chạy](/images/5-Workshop/hashop-test-cleanup/image2.png)
+![Các ECS service đang chạy](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image2.png)
