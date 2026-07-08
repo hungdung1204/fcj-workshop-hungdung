@@ -14,4 +14,4 @@ Expected result:
 - No dependent stack remains in a failed deletion state.
 - The AWS account no longer keeps resources that can generate lab costs.
 
-![Empty S3 buckets created by the foundation stack](/fcj-workshop-haidang/images/5-Workshop/hashop-test-cleanup/image13.png)
+![Empty S3 buckets created by the foundation stack](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image13.png)

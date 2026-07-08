@@ -14,4 +14,4 @@ Expected result:
 - No dependent stack remains in a failed deletion state.
 - The AWS account no longer keeps resources that can generate lab costs.
 
-![Delete the DB init stack](/fcj-workshop-haidang/images/5-Workshop/hashop-test-cleanup/image11.png)
+![Delete the DB init stack](/fcj-workshop-hungdung/images/5-Workshop/hashop-test-cleanup/image11.png)
