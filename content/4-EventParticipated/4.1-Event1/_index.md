@@ -82,4 +82,4 @@ FCAJ Meetup was a meaningful event because it covered not only technology, but a
 The event also gave me more motivation to continue learning AWS, DevOps, and cloud computing. I realized that to grow in the IT field, technical knowledge is important, but continuous learning, community participation, and soft skills are equally necessary.
 
 Overall, FCAJ Meetup provided practical knowledge about DevOps, AWS Cloud, Data Analytics, and enterprise working environments. It was a useful experience that helped me define a clearer learning and career development path.
-![Your profile picture](images/minhchung1.png)
+![Your profile picture](fcj-workshop-hungdung/images/minhchung1.png)
