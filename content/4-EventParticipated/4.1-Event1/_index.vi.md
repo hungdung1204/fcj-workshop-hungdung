@@ -82,4 +82,4 @@ FCAJ Meetup là một sự kiện hữu ích vì nội dung không chỉ tập t
 Sự kiện cũng giúp tôi có thêm động lực để tiếp tục học AWS, DevOps và Cloud Computing. Tôi nhận ra rằng để phát triển lâu dài trong ngành CNTT, ngoài kiến thức chuyên môn, việc học liên tục, tham gia cộng đồng và rèn luyện kỹ năng mềm cũng quan trọng không kém.
 
 Tổng kết lại, FCAJ Meetup mang đến nhiều kiến thức thực tế về DevOps, AWS Cloud, Data Analytics và môi trường doanh nghiệp. Đây là một trải nghiệm bổ ích, giúp tôi định hướng rõ hơn cho quá trình học tập và phát triển nghề nghiệp sau này.
-![Your profile picture](fcj-workshop-hungdung/images/minhchung1.png)
+![Your profile picture](/fcj-workshop-hungdung/images/minhchung1.png)
